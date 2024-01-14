@@ -6,6 +6,7 @@ const operators = document.querySelector('.operators');
 const mainPanel = document.querySelector('.main-panel');
 const equalSign = document.querySelector('.equal');
 
+// starting conditions
 let result2 = '';
 let displayed = false;
 let isZero = true;
@@ -20,11 +21,13 @@ function calculate() {
   inputField.textContent = result2;
 }
 
+// Main part
 for (let i = 0; i < mainPanel.children.length; i++) {
   for (let j = 0; j < mainPanel.children[i].children.length; j++) {
     let number = mainPanel.children[i].children[j].textContent;
     //** numbers listener */
     mainPanel.children[i].children[j].addEventListener('click', function () {
+      // chech if output is displayed
       if (displayed) {
         counter = '0';
         displayed = false;
@@ -46,6 +49,7 @@ for (let i = 0; i < mainPanel.children.length; i++) {
       }
 
       if (number !== 'C') num += number;
+      // output
       output = counter.replaceAll('*', '×').replaceAll('/', '÷');
       inputField.textContent = output;
       isZero = false;
@@ -63,19 +67,22 @@ for (let i = 0; i < operators.childElementCount; i++) {
   operators.children[i].addEventListener('click', function () {
     if (inputField.textContent !== '0') {
       num = '';
+
+      // chech if output is displayed
       if (displayed) {
         displayed = false;
         counter = result2;
       } else if (inputField.textContent.endsWith('0')) {
         isZero = false;
       }
-
+      // add operator to counter
       if (counter !== undefined && (counter.at(-1) === '+' || counter.at(-1) === '-' || counter.at(-1) === '*' || counter.at(-1) === '/')) {
         counter += '';
       } else counter += operator;
 
       if (counter.at(-1) === operator) num = '';
 
+      // output
       output = counter.replaceAll('*', '×').replaceAll('/', '÷');
       inputField.textContent = output;
     }
@@ -85,8 +92,10 @@ for (let i = 0; i < operators.childElementCount; i++) {
 //* = Listener */
 equalSign.addEventListener('click', function () {
   try {
+    // If everything is fine👍
     calculate();
   } catch (error) {
+    // If we get an error
     counter += eval(counter.slice(0, -1));
     calculate();
   }
