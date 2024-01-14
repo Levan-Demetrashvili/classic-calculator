@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap');
 
 /*! Globalt styles ***/
+html {
+  font-size: 62.5%;
+}
 * {
   margin: 0;
   padding: 0;
   font-weight: 300;
-  font-size: 1.4rem;
+  font-size: 2.88rem;
   letter-spacing: 5px;
 }
 
@@ -20,7 +23,7 @@ body {
 
 .calculator {
   max-width: 460px;
-  padding: 20px;
+  padding: 2rem;
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
   border-radius: 1px;
 }
@@ -29,10 +32,10 @@ body {
   height: 60px;
   border: 1px solid #ddd;
   border-radius: 1px;
-  font-size: 2rem;
-  padding: 10px 15px 0 0;
+  font-size: 4rem;
+  padding: 1rem 1.5rem 0 0;
   text-align: right;
-  margin-right: 6px;
+  margin-right: 0.6rem;
   overflow-x: auto;
 }
 .buttons {
@@ -46,8 +49,8 @@ body {
 }
 .main-panel .numbers div,
 .operators div {
-  width: 80px;
-  padding: 10px;
+  width: 8rem;
+  padding: 1rem;
   border-radius: 1px;
   text-align: center;
   cursor: pointer;
@@ -56,13 +59,13 @@ body {
 .main-panel .numbers div {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
-  margin: 10px 4px 10px 0;
+  margin: 1rem 0.4rem 1rem 0;
 }
 
 .operators div {
   border: 1px solid #bbb;
   background-color: #ddd;
-  margin: 20px 4px 10px 0;
+  margin: 2rem 0.4rem 1rem 0;
 }
 
 .equal {
@@ -70,8 +73,8 @@ body {
 
   width: 17%;
 
-  padding: 127px 10px;
-  margin: 10px 6px 10px 0;
+  padding: 12.7rem 1rem;
+  margin: 1rem 0.6rem 1rem 0;
 
   border-radius: 1px;
   border: 1px solid #3079ed;
@@ -115,4 +118,45 @@ body {
 .equal,
 #input {
   transition: all 0.2s ease-in-out;
+}
+
+@media only screen and (max-width: 576px) {
+  html {
+    font-size: 50%;
+  }
+  body {
+    background-color: #9c9c9c;
+  }
+  .calculator {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px white;
+    max-width: 376px;
+  }
+  .buttons .numbers div,
+  .operators div {
+    border-radius: 25%;
+  }
+  .equal {
+    border-radius: 10%;
+  }
+  #input {
+    border: 0px;
+    height: 24rem;
+    font-size: 7rem;
+    pointer-events: none;
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  html {
+    font-size: 45%;
+  }
+  .buttons .numbers div,
+  .operators div {
+    width: 5rem;
+  }
+  .equal {
+    width: 5rem;
+  }
 }
